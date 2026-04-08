@@ -73,13 +73,13 @@
 #
 # If any of the rubygems were not updated then the release_prefix *MUST* be bumped, as yum will not be
 # able to properly handle the dependencies otherwise.
-%define release_prefix 22
+%define release_prefix 23
 
 %if 0%{?fedora} >= 19
 %global with_rubypick 1
 %endif
 
-Summary: An interpreter of object-oriented scripting language
+Summary: EOL An interpreter of object-oriented scripting language
 Name: %{?scl_prefix}ruby
 Version: %{ruby_version}
 Release: %{release_prefix}%{?dist}.cpanel
@@ -89,7 +89,7 @@ Group: Development/Languages
 # zlib: ext/digest/md5/md5.*, ext/nkf/nkf-utf8/nkf.c
 # UCD: some of enc/trans/**/*.src
 License: (Ruby or BSD) and Public Domain and MIT and CC0 and zlib and UCD
-URL: http://ruby-lang.org/
+URL: https://endoflife.date/ruby
 Source0: ftp://ftp.ruby-lang.org/pub/%{pkg_name}/%{major_minor_version}/%{ruby_archive}.tar.xz
 Source1: operating_system.rb
 # TODO: Try to push SystemTap support upstream.
@@ -194,22 +194,26 @@ BuildRequires: cmake
 Provides: ruby(runtime_executable) = %{ruby_release}
 
 %description
+ruby 2.4 has reached End of Life.
+
 Ruby is the interpreted scripting language for quick and easy
 object-oriented programming.  It has many features to process text
 files and to do system management tasks (as in Perl).  It is simple,
 straight-forward, and extensible.
 
 %package devel
-Summary:    A Ruby development environment
+Summary:    EOL A Ruby development environment
 Group:      Development/Languages
 Requires:   %{?scl_prefix}%{pkg_name}%{?_isa} = %{version}-%{release}
 
 %description devel
+ruby 2.4 has reached End of Life.
+
 Header files and libraries for building an extension library for the
 Ruby or an application embedding Ruby.
 
 %package libs
-Summary:    Libraries necessary to run Ruby
+Summary:    EOL Libraries necessary to run Ruby
 Group:      Development/Libraries
 License:    Ruby or BSD
 Provides:   %{?scl_prefix}ruby(release) = %{ruby_release}
@@ -222,12 +226,14 @@ Provides: bundled(ccan-container_of)
 Provides: bundled(ccan-list)
 
 %description libs
+ruby 2.4 has reached End of Life.
+
 This package includes the libruby, necessary to run Ruby.
 
 
 # TODO: Rename or not rename to ruby-rubygems?
 %package -n %{?scl_prefix}rubygems
-Summary:    The Ruby standard for packaging ruby libraries
+Summary:    EOL The Ruby standard for packaging ruby libraries
 Version:    %{rubygems_version}
 Group:      Development/Libraries
 License:    Ruby or MIT
@@ -246,11 +252,13 @@ Provides: bundled(rubygem-molinillo) = %{molinillo_version}
 BuildArch: noarch
 
 %description -n %{?scl_prefix}rubygems
+ruby 2.4 has reached End of Life.
+
 RubyGems is the Ruby standard for publishing and managing third party
 libraries.
 
 %package -n %{?scl_prefix}rubygems-devel
-Summary:    Macros and development tools for packaging RubyGems
+Summary:    EOL Macros and development tools for packaging RubyGems
 Version:    %{rubygems_version}
 Group:      Development/Libraries
 License:    Ruby or MIT
@@ -261,10 +269,12 @@ Requires:   %{?scl_prefix}rubygem(rdoc) >= %{rdoc_version}
 BuildArch:  noarch
 
 %description -n %{?scl_prefix}rubygems-devel
+ruby 2.4 has reached End of Life.
+
 Macros and development tools for packaging RubyGems.
 
 %package -n %{?scl_prefix}rubygem-rake
-Summary:    Ruby based make-like utility
+Summary:    EOL Ruby based make-like utility
 Version:    %{rake_version}
 Group:      Development/Libraries
 License:    MIT
@@ -275,11 +285,13 @@ Provides:   %{?scl_prefix}rubygem(rake) = %{version}-%{release}
 BuildArch:  noarch
 
 %description -n %{?scl_prefix}rubygem-rake
+ruby 2.4 has reached End of Life.
+
 Rake is a Make-like program implemented in Ruby. Tasks and dependencies are
 specified in standard Ruby syntax.
 
 %package irb
-Summary:    The Interactive Ruby
+Summary:    EOL The Interactive Ruby
 Version:    %{irb_version}
 Group:      Development/Libraries
 Requires:   %{?scl_prefix}%{pkg_name}-libs = %{ruby_version}
@@ -288,11 +300,13 @@ Provides:   %{?scl_prefix}ruby(irb) = %{version}-%{release_prefix}
 BuildArch:  noarch
 
 %description irb
+ruby 2.4 has reached End of Life.
+
 The irb is acronym for Interactive Ruby.  It evaluates ruby expression
 from the terminal.
 
 %package -n %{?scl_prefix}rubygem-rdoc
-Summary:    A tool to generate HTML and command-line documentation for Ruby projects
+Summary:    EOL A tool to generate HTML and command-line documentation for Ruby projects
 Version:    %{rdoc_version}
 Group:      Development/Libraries
 # SIL: lib/rdoc/generator/template/darkfish/css/fonts.css
@@ -311,21 +325,25 @@ Provides:   %{?scl_prefix}rubygem(rdoc) = %{version}-%{release}
 BuildArch:  noarch
 
 %description -n %{?scl_prefix}rubygem-rdoc
+ruby 2.4 has reached End of Life.
+
 RDoc produces HTML and command-line documentation for Ruby projects.  RDoc
 includes the 'rdoc' and 'ri' tools for generating and displaying online
 documentation.
 
 %package doc
-Summary:    Documentation for %{pkg_name}
+Summary:    EOL Documentation for %{pkg_name}
 Group:      Documentation
 Requires:   %{_bindir}/ri
 BuildArch:  noarch
 
 %description doc
+ruby 2.4 has reached End of Life.
+
 This package contains documentation for %{pkg_name}.
 
 %package -n %{?scl_prefix}rubygem-bigdecimal
-Summary:    BigDecimal provides arbitrary-precision floating point decimal arithmetic
+Summary:    EOL BigDecimal provides arbitrary-precision floating point decimal arithmetic
 Version:    %{bigdecimal_version}
 Group:      Development/Libraries
 License:    GPL+ or Artistic
@@ -334,6 +352,8 @@ Requires:   %{?scl_prefix}ruby(rubygems) >= %{rubygems_version}
 Provides:   %{?scl_prefix}rubygem(bigdecimal) = %{version}-%{release}
 
 %description -n %{?scl_prefix}rubygem-bigdecimal
+ruby 2.4 has reached End of Life.
+
 Ruby provides built-in support for arbitrary precision integer arithmetic.
 For example:
 
@@ -346,7 +366,7 @@ floating point arithmetic often introduces subtle errors because of the
 conversion between base 10 and base 2.
 
 %package -n %{?scl_prefix}rubygem-did_you_mean
-Summary:    "Did you mean?" experience in Ruby
+Summary:    EOL "Did you mean?" experience in Ruby
 Version:    %{did_you_mean_version}
 Group:      Development/Libraries
 License:    MIT
@@ -355,11 +375,13 @@ Requires:   %{?scl_prefix}ruby(rubygems) >= %{rubygems_version}
 Provides:   %{?scl_prefix}rubygem(did_you_mean) = %{version}-%{release}
 
 %description -n %{?scl_prefix}rubygem-did_you_mean
+ruby 2.4 has reached End of Life.
+
 "did you mean?" experience in Ruby: the error message will tell you the right
 one when you misspelled something.
 
 %package -n %{?scl_prefix}rubygem-io-console
-Summary:    IO/Console is a simple console utilizing library
+Summary:    EOL IO/Console is a simple console utilizing library
 Version:    %{io_console_version}
 Group:      Development/Libraries
 Requires:   %{?scl_prefix}ruby(release)
@@ -367,11 +389,13 @@ Requires:   %{?scl_prefix}ruby(rubygems) >= %{rubygems_version}
 Provides:   %{?scl_prefix}rubygem(io-console) = %{version}-%{release}
 
 %description -n %{?scl_prefix}rubygem-io-console
+ruby 2.4 has reached End of Life.
+
 IO/Console provides very simple and portable access to console. It doesn't
 provide higher layer features, such like curses and readline.
 
 %package -n %{?scl_prefix}rubygem-json
-Summary:    This is a JSON implementation as a Ruby extension in C
+Summary:    EOL This is a JSON implementation as a Ruby extension in C
 Version:    %{json_version}
 Group:      Development/Libraries
 # UCD: ext/json/generator/generator.c
@@ -381,13 +405,15 @@ Requires:   %{?scl_prefix}ruby(rubygems) >= %{rubygems_version}
 Provides:   %{?scl_prefix}rubygem(json) = %{version}-%{release}
 
 %description -n %{?scl_prefix}rubygem-json
+ruby 2.4 has reached End of Life.
+
 This is a implementation of the JSON specification according to RFC 4627.
 You can think of it as a low fat alternative to XML, if you want to store
 data to disk or transmit it over a network rather than use a verbose
 markup language.
 
 %package -n %{?scl_prefix}rubygem-minitest
-Summary:    Minitest provides a complete suite of testing facilities
+Summary:    EOL Minitest provides a complete suite of testing facilities
 Version:    %{minitest_version}
 Group:      Development/Libraries
 License:    MIT
@@ -397,6 +423,8 @@ Provides:   %{?scl_prefix}rubygem(minitest) = %{version}-%{release}
 BuildArch:  noarch
 
 %description -n %{?scl_prefix}rubygem-minitest
+ruby 2.4 has reached End of Life.
+
 minitest/unit is a small and incredibly fast unit testing framework.
 
 minitest/spec is a functionally complete spec engine.
@@ -411,7 +439,7 @@ minitest/pride shows pride in testing and adds coloring to your test
 output.
 
 %package -n %{?scl_prefix}rubygem-openssl
-Summary:    OpenSSL provides SSL, TLS and general purpose cryptography
+Summary:    EOL OpenSSL provides SSL, TLS and general purpose cryptography
 Version:    %{openssl_version}
 Group:      Development/Libraries
 License:    Ruby or BSD
@@ -423,12 +451,14 @@ BuildRequires: ea-openssl >= %{ea_openssl_ver}
 BuildRequires: ea-openssl-devel >= %{ea_openssl_ver}
 
 %description -n %{?scl_prefix}rubygem-openssl
+ruby 2.4 has reached End of Life.
+
 OpenSSL provides SSL, TLS and general purpose cryptography. It wraps the
 OpenSSL library.
 
 
 %package -n %{?scl_prefix}rubygem-power_assert
-Summary:    Power Assert for Ruby
+Summary:    EOL Power Assert for Ruby
 Version:    %{power_assert_version}
 Group:      Development/Libraries
 License:    Ruby or BSD
@@ -438,12 +468,14 @@ Provides:   %{?scl_prefix}rubygem(power_assert) = %{version}-%{release}
 BuildArch:  noarch
 
 %description -n %{?scl_prefix}rubygem-power_assert
+ruby 2.4 has reached End of Life.
+
 Power Assert shows each value of variables and method calls in the expression.
 It is useful for testing, providing which value wasn't correct when the
 condition is not satisfied.
 
 %package -n %{?scl_prefix}rubygem-psych
-Summary:    A libyaml wrapper for Ruby
+Summary:    EOL A libyaml wrapper for Ruby
 Version:    %{psych_version}
 Group:      Development/Libraries
 License:    MIT
@@ -452,13 +484,15 @@ Requires:   %{?scl_prefix}ruby(rubygems) >= %{rubygems_version}
 Provides:   %{?scl_prefix}rubygem(psych) = %{version}-%{release}
 
 %description -n %{?scl_prefix}rubygem-psych
+ruby 2.4 has reached End of Life.
+
 Psych is a YAML parser and emitter. Psych leverages
 libyaml[http://pyyaml.org/wiki/LibYAML] for its YAML parsing and emitting
 capabilities. In addition to wrapping libyaml, Psych also knows how to
 serialize and de-serialize most Ruby objects to and from the YAML format.
 
 %package -n %{?scl_prefix}rubygem-net-telnet
-Summary:    Provides telnet client functionality
+Summary:    EOL Provides telnet client functionality
 Version:    %{net_telnet_version}
 Group:      Development/Libraries
 Requires:   %{?scl_prefix}ruby(release)
@@ -466,6 +500,8 @@ Requires:   %{?scl_prefix}ruby(rubygems) >= %{rubygems_version}
 Provides:   %{?scl_prefix}rubygem(net-telnet) = %{version}-%{release}
 
 %description -n %{?scl_prefix}rubygem-net-telnet
+ruby 2.4 has reached End of Life.
+
 Provides telnet client functionality.
 
 This class also has, through delegation, all the methods of a socket object
@@ -480,7 +516,7 @@ the output through preprocess() to extract telnet command sequences.
 # https://github.com/test-unit/test-unit/issues/73
 
 %package -n %{?scl_prefix}rubygem-test-unit
-Summary:    Improved version of Test::Unit bundled in Ruby 1.8.x
+Summary:    EOL Improved version of Test::Unit bundled in Ruby 1.8.x
 Version:    %{test_unit_version}
 Group:      Development/Libraries
 # lib/test/unit/diff.rb is a double license of the Ruby license and PSF license.
@@ -493,13 +529,15 @@ Provides:   %{?scl_prefix}rubygem(test-unit) = %{version}-%{release}
 BuildArch:  noarch
 
 %description -n %{?scl_prefix}rubygem-test-unit
+ruby 2.4 has reached End of Life.
+
 Ruby 1.9.x bundles minitest not Test::Unit. Test::Unit
 bundled in Ruby 1.8.x had not been improved but unbundled
 Test::Unit (test-unit) is improved actively.
 
 
 %package -n %{?scl_prefix}rubygem-xmlrpc
-Summary:    XMLRPC is a lightweight protocol that enables remote procedure calls over HTTP
+Summary:    EOL XMLRPC is a lightweight protocol that enables remote procedure calls over HTTP
 Version:    %{xmlrpc_version}
 Group:      Development/Libraries
 License:    Ruby or BSD
@@ -509,6 +547,8 @@ Provides:   %{?scl_prefix}rubygem(xmlrpc) = %{version}-%{release}
 BuildArch:  noarch
 
 %description -n %{?scl_prefix}rubygem-xmlrpc
+ruby 2.4 has reached End of Life.
+
 XMLRPC is a lightweight protocol that enables remote procedure calls over
 HTTP.
 
@@ -1072,6 +1112,9 @@ EOF}
 %{gem_dir}/specifications/xmlrpc-%{xmlrpc_version}.gemspec
 
 %changelog
+* Wed Apr 08 2026 Brian Mendoza <brian.mendoza@webpros.com> - 2.4.10-23
+- EA4-173: Mark ea-scl-ruby24 as EOL
+
 * Wed May 17 2023 Brian Mendoza <brian.mendoza@cpanel.net> - 2.4.10-22
 - ZC-10950: Add debug_package nil back w/ second directive (3rd item will be ZC-10951)
 
